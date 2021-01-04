@@ -1,2 +1,3 @@
 # HappyCookieApp
 An Inspirational App designed to make you smile. Crack open a Cookie and see your inspirational fortune. Go ahead. Crack one open.
+If you are tired, feeling down and need a little sunshine in this troubled time, crack open one of these inspirational fortune cookies (or 20) and feel a little better. They will deliver one of many silly, comical, and/or inspirational quotes, phrases or personalized fortunes that are designed to warm even the most frozen heart (and hopefully make you smile).
