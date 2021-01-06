@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   end
 
   def create
+    user = User.find_or_create_by(user_params)
+    fortune = fortune.new(fortune_params)
   end
 
   def show
@@ -10,4 +12,16 @@ class UsersController < ApplicationController
 
   def destroy
   end
+
+
+private
+
+  def user_params(params)
+    params.require(:user).permit(:name, :email, :password)
+  end
+  
+  def fortune_params(params)
+    params.require(:fortune).permit(:name)
+  end
+
 end
