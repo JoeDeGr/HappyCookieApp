@@ -1,7 +1,7 @@
 class FortunesController < ApplicationController
   def index
-    binding.pry
-    render "got the fetch"
+    message = "got the fetch"
+    render JSON: message
   end
 
   def create

@@ -9,5 +9,6 @@ document.addEventListener('DOMContentLoaded', (e) =>{
 function fetchFortune(){
     return fetch(FORTUNE_URL)
         .then(resp => resp.json())
-        .then(json => console.log(json));
+        .then(json => console.log(json))
+        .catch(() => console.log("can't get the DATA!"));
 }
