@@ -27,3 +27,7 @@ function fetchUser(){
         })
 
 }
+
+function buildPage(){
+    
+}
