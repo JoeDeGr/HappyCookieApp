@@ -7,5 +7,5 @@ document.addEventListener('DOMContentLoaded', (e) =>{
 });
 
 function fetchFortune(){
-
+    
 }
