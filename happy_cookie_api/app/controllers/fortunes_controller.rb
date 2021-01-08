@@ -1,7 +1,8 @@
 class FortunesController < ApplicationController
   def index
-    message = "got the fetch"
-    render JSON: message
+    fortune = Fortune.all
+    render json: fortune.to_json
+    binding.pry
   end
 
   def create
