@@ -1,12 +1,15 @@
 class UsersController < ApplicationController
   def index
+    user = User.all
+    binding.pry
+    render json: user.to_json
   end
 
   def create
     user = User.find_or_create_by(user_params)
-    fortune = fortune.new(fortune_params)
+    # user = User.all
     binding.pry
-    render "got the fetch"
+    render json: user.to_json
   end
 
   def show
