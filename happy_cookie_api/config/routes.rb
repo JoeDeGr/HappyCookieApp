@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'fortunes/index'
+  get 'fortunes', to: 'fortunes#index'
   get 'fortunes/create'
   get 'fortunes/destroy'
   get 'users/index'
