@@ -7,26 +7,6 @@ document.addEventListener('DOMContentLoaded', (e) =>{
     fetchUser();
 });
 
-function fetchFortune(){
-    return fetch(FORTUNE_URL)
-        .then(resp => resp.json())
-        .then(json => console.log(json.parse))
-        .catch(function(error){ 
-            alert("NOOOOOO!");
-            console.log(error.message);
-        })
-}
-
-function fetchUser(){
-    return fetch(USER_URL)
-        .then(resp => resp.json())
-        .then(json => console.log(json))
-        .catch(function(error){
-            alert("Yaargh! I'm Not Working!");
-            console.log(error.message);
-        })
-
-}
 
 function buildPage(){
     

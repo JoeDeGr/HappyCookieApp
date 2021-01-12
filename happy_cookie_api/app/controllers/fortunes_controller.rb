@@ -2,7 +2,6 @@ class FortunesController < ApplicationController
   def index
     fortune = Fortune.all
     render json: fortune.to_json
-    binding.pry
   end
 
   def create
