@@ -3,11 +3,13 @@ const USER_URL = `${BASE_URL}/users`
 const FORTUNE_URL = `${BASE_URL}/fortunes`
 
 document.addEventListener('DOMContentLoaded', (e) =>{
-    fetchFortune();
-    fetchUser();
+    buildPage()
 });
 
 
 function buildPage(){
-    
+    let main = document.querySelector('main')
+    let div = document.createElement('div')
+
+
 }
