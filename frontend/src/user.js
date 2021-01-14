@@ -19,7 +19,6 @@ function submitUserInfo(e){
         email: formInfo[1].value,
         password: formInfo[2].value
     }
-    console.log(formData)
 
     let configObj = {
         method: "POST",
@@ -29,6 +28,7 @@ function submitUserInfo(e){
         },
         body: JSON.stringify(formData)
     };
+    console.log(configObj)
 
     return fetchUser(configObj)
 }
