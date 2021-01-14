@@ -9,11 +9,7 @@ document.addEventListener('DOMContentLoaded', (e) =>{
 
 
 function buildPage(){
-    let main = document.querySelector('main')
-    let div = document.createElement('div')
-    main.appendChild(div)
-
-
+    login.addEventListener('click', (e) => submitUserInfo(e))
 }
 
 function hide(obj){
