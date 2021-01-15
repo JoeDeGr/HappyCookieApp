@@ -33,6 +33,7 @@ function loadFortuneField(){
     button.addEventListener('click', (e) => console.log(e))
     button.setAttribute('class', 'fortune-button')
     button.innerHTML = "Push Me!"
+    button.id = user.id
 
     div2.setAttribute('class', 'fortunes-list')
     subH.setAttribute('class', 'fortune-sub-heading')
@@ -41,14 +42,17 @@ function loadFortuneField(){
     button2.innerHTML = "Show Previous Fortunes"
     button2.addEventListener('click', (e) => showOrHideFortunes(e));
     ul.setAttribute('class', 'fortune-list')
+    ul.id = user.id
 
+    ul.appendChild(subH)
     div2.appendChild(button2)
-    div2.appendChild(subh)
-    subh.appendChild(ul)
+    div2.appendChild(subH)
+    div2.appendChild(ul)
+    
 
     div.appendChild(h3)
     div.appendChild(button)
-    div.appendChild(div2)
+    div.appendChild(div2) //maybe make this a seperate `div` "container"?
     body.appendChild(div)
 
     function showOrHideFortunes(e){
@@ -56,10 +60,12 @@ function loadFortuneField(){
         console.log(e);
         if(button2.innerHTML==="Show Previous Fortunes"){
             hide(ul);
+            hide(subH)
             button2.innerHTML = "Hide Previous Fortunes"
         }else{
             hide(ul);
-            button2.innerHTML = "Hide Previous Fortunes"
+            hide(subH)
+            button2.innerHTML = "Show Previous Fortunes"
         }
     }
 }
