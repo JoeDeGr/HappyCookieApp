@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    binding.pry
     user = User.find_or_create_by(user_params)
     # user = User.all
     render json: user.to_json
@@ -20,7 +21,7 @@ class UsersController < ApplicationController
 
 private
 
-  def user_params(params)
+  def user_params
     params.require(:user).permit(:name, :email, :password)
   end
   

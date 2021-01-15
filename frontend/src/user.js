@@ -28,7 +28,7 @@ function submitUserInfo(e){
         },
         body: JSON.stringify(formData)
     };
-    console.log(configObj)
+    // console.log(configObj)
 
     return fetchUser(configObj)
 }
