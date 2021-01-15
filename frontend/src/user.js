@@ -3,7 +3,7 @@
 function fetchUser(configObj){
     return fetch(USER_URL, configObj)
         .then(resp => resp.json())
-        .then(json => console.log(json))
+        .then(json => addUserToPage(json))
         .catch(function(error){
             alert("Yaargh! I'm Not Working!");
             console.log(error.message);
@@ -28,7 +28,22 @@ function submitUserInfo(e){
         },
         body: JSON.stringify(formData)
     };
-    // console.log(configObj)
 
     return fetchUser(configObj)
+}
+
+function addUserToPage(json){
+    console.log(json)
+    hide(login);
+    let greeting = `Welcome ${json.name}. We are glad you came here today.`
+    let body = document.querySelector('body')
+    let div = document.createElement('div')
+    let h2 = document.createElement('h2')
+    div.setAttribute('class', "info")
+    div.id = json.id
+    h2.setAttribute('class', 'greeting')
+    h2.innerHTML = greeting
+    div.appendChild(h2)
+    body.appendChild(div)
+    // hide(div)
 }
