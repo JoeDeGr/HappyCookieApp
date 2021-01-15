@@ -29,17 +29,26 @@ function loadFortuneField(){
 
     div.setAttribute('class', 'fortune-container')
     h3.setAttribute('class', 'fortune-heading')
+    h3.innerHTML = "Travel through the deppest depths and widest expanses of time and space and see what your future holds! "
     button.addEventListener('click', (e) => console.log(e))
     button.setAttribute('class', 'fortune-button')
     button.innerHTML = "Push Me!"
-    button2.addEventListener('click', (e) => showOrHideFortunes(e));
-    button2.setAttribute('class', 'hide-previous-fortunes');
-    button2.innerHTML = "Show Previous Fortunes"
 
     div2.setAttribute('class', 'fortunes-list')
+    subH.setAttribute('class', 'fortune-sub-heading')
+    subH.innerHTML = "Your Previous Fortunes"
+    button2.setAttribute('class', 'hide-previous-fortunes-button');
+    button2.innerHTML = "Show Previous Fortunes"
+    button2.addEventListener('click', (e) => showOrHideFortunes(e));
     ul.setAttribute('class', 'fortune-list')
+
+    div2.appendChild(button2)
+    div2.appendChild(subh)
+    subh.appendChild(ul)
+
     div.appendChild(h3)
     div.appendChild(button)
+    div.appendChild(div2)
     body.appendChild(div)
 
     function showOrHideFortunes(e){

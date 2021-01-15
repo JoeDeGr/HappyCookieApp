@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'fortunes', to: 'fortunes#index'
-  get 'fortunes/create'
+  # get 'fortunes/create'
+  post 'fortunes', to: 'fortunes#create'
   get 'fortunes/destroy'
   get 'users', to: 'users#index'
   # get 'users/create'
