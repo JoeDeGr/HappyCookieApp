@@ -7,7 +7,8 @@ class UsersController < ApplicationController
 
   def create
     user = User.find_or_create_by(user_params)
-    render json: user.to_json
+    fortunes = Fortune.find_by(user_id: user.id)
+    render json: {user: user, fortunes: fortunes}
   end
 
   def show
