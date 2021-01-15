@@ -1,6 +1,15 @@
 
 
-function fetchUser(configObj){
+class User{
+    constructor(name, id){
+        this.name = name
+        this.id = id
+    }
+}
+    
+    
+    
+    function fetchUser(configObj){
     return fetch(USER_URL, configObj)
         .then(resp => resp.json())
         .then(json => addUserToPage(json))
@@ -33,17 +42,18 @@ function submitUserInfo(e){
 }
 
 function addUserToPage(json){
-    console.log(json)
+    user = new User(json.name, json.id);
+    console.log(user);
     hide(login);
-    let greeting = `Welcome ${json.name}. We are glad you came here today.`
-    let body = document.querySelector('body')
-    let div = document.createElement('div')
-    let h2 = document.createElement('h2')
-    div.setAttribute('class', "info")
-    div.id = json.id
-    h2.setAttribute('class', 'greeting')
-    h2.innerHTML = greeting
-    div.appendChild(h2)
-    body.appendChild(div)
+    let greeting = `Welcome ${user.name}. We are glad you came here today.`;
+    let body = document.querySelector('body');
+    let div = document.createElement('div');
+    let h2 = document.createElement('h2');
+    div.setAttribute('class', "info");
+    div.id = user.id;
+    h2.setAttribute('class', 'greeting');
+    h2.innerHTML = greeting;
+    div.appendChild(h2);
+    body.appendChild(div);
     // hide(div)
 }
