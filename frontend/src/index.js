@@ -5,6 +5,7 @@ let login = document.querySelector("body > div.login")
 let loginButton = document.querySelector("#login-form > input[type=button]")
 let body = document.querySelector('body');
 let background2 = 'fortune-cookie-with-paper.jpg'
+let fortuneDefaultMessage = "You don't have any fortunes yet!"
 
 
 document.addEventListener('DOMContentLoaded', (e) =>{

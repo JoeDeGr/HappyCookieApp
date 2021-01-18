@@ -3,7 +3,7 @@ class Fortune {
     constructor(id, name, posVibes, user_id) {
         this.id = id;
         this.name = name;
-        this.posVives = posVibes;
+        this.posVibes = posVibes;
         this.user_id = user_id;
     }
 }
@@ -70,14 +70,24 @@ function loadFortuneField(){
 function appendFortunes(json){
     let ul = document.querySelector("body > div.fortunes-list > ul")
     let fortunes = json.fortunes
-    console.log(json)
-    for (let fortune of fortunes) {
-        fortune = new Fortune(fortune.id, fortune.name, fortune.posVibes, fortune.user_id);
+    if (fortunes == ""){
         let li = document.createElement('li');
         li.setAttribute('class', 'fortunes');
-        li.id = fortune.id;
-        li.innerText = fortune.posVibes;
+        li.id = "0"
+        li.innerText = fortuneDefaultMessage;
         ul.appendChild(li)
+    }else{
+        debugger
+        for (let fortune of fortunes) {
+            debugger
+            thisFortune = new Fortune(fortune.id, fortune.name, fortune.posVibes, fortune.user_id);
+            let li = document.createElement('li');
+            let button = document.createElement('button')
+            li.setAttribute('class', 'fortunes');
+            li.id = thisFortune.id;
+            li.innerText = thisFortune.posVibes;
+            ul.appendChild(li)
+        }
     }
 }
 
@@ -98,6 +108,6 @@ function fetchNewFortune(e){
         },
         body: JSON.stringify(formData)
     };
-    console.log(configObj)
-    // return fetchFortune(configObj)
+    // console.log(configObj)
+    return fetchFortune(configObj)
 }
