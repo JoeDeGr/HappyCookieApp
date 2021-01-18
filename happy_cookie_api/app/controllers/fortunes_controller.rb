@@ -6,7 +6,7 @@ class FortunesController < ApplicationController
 
   def create
     user = User.find_by_id(params[:user_id])
-    fortune = Fortune.new(user_id: user.id)
+    fortune = Fortune.new(id: 10, name: "new fortune", posVibes: "feeling it!", user_id: user.id)
     render json: fortune
   end
 

@@ -1,4 +1,3 @@
-
 class Fortune {
     constructor(id, name, posVibes, user_id) {
         this.id = id;
@@ -6,16 +5,19 @@ class Fortune {
         this.posVibes = posVibes;
         this.user_id = user_id;
     }
-    build (location){
+    build (location, atr, type){
         console.log(this)
-        let li = document.createElement('li');
+        let li = document.createElement(type);
         let button = document.createElement('button')
-        li.setAttribute('class', 'fortunes');
+        li.setAttribute('class', atr);
         li.id = thisFortune.id;
         li.innerText = thisFortune.posVibes;
         location.appendChild(li)
     }
 }
+
+
+
 
 function fetchFortune(configObj){
     return fetch(FORTUNE_URL, configObj)
@@ -89,14 +91,16 @@ function appendFortunes(json){
 
         for (let fortune of fortunes) {
             thisFortune = new Fortune(fortune.id, fortune.name, fortune.posVibes, fortune.user_id);
-            thisFortune.build(ul)
+            thisFortune.build(ul, 'fortunes', 'li')
         }
     }
 }
 
 function fetchNewFortune(e){
     e.preventDefault();
-
+    let a = document.querySelector(".new-fortune")
+    let mainContainer = document.querySelector('body > div.fortune-container')
+    
     let formInfo = e.target
 
     let formData = {
@@ -111,9 +115,19 @@ function fetchNewFortune(e){
         },
         body: JSON.stringify(formData)
     };
+
+    if (a){
+        mainContainer.removeChild(a)
+    }
     return fetchFortune(configObj)
 }
 
 function displayFortune(json){
     console.log(json)
+    let mainContainer = document.querySelector('body > div.fortune-container')
+    let ul = document.querySelector("body > div.fortunes-list > ul")
+    debugger
+    thisFortune = new Fortune(json.id, json.name, json.posVibes, json.user_id);
+    thisFortune.build(ul, 'fortunes', 'li')
+    thisFortune.build(mainContainer, 'new-fortune', 'a')
 }
