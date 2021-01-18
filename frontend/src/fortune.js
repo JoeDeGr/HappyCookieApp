@@ -6,12 +6,21 @@ class Fortune {
         this.posVibes = posVibes;
         this.user_id = user_id;
     }
+    build (location){
+        console.log(this)
+        let li = document.createElement('li');
+        let button = document.createElement('button')
+        li.setAttribute('class', 'fortunes');
+        li.id = thisFortune.id;
+        li.innerText = thisFortune.posVibes;
+        location.appendChild(li)
+    }
 }
 
 function fetchFortune(configObj){
     return fetch(FORTUNE_URL, configObj)
         .then(resp => resp.json())
-        .then(json => console.log(json))
+        .then(json => displayFortune(json))
         .catch(function(error){ 
             alert("NOOOOOO!");
             console.log(error.message);
@@ -80,23 +89,15 @@ function appendFortunes(json){
 
         for (let fortune of fortunes) {
             thisFortune = new Fortune(fortune.id, fortune.name, fortune.posVibes, fortune.user_id);
-            let li = document.createElement('li');
-            let button = document.createElement('button')
-            li.setAttribute('class', 'fortunes');
-            li.id = thisFortune.id;
-            li.innerText = thisFortune.posVibes;
-            ul.appendChild(li)
+            thisFortune.build(ul)
         }
     }
 }
 
 function fetchNewFortune(e){
-    console.log(e)
-    debugger
     e.preventDefault();
-    let formInfo = e.target
 
-    console.log(formInfo)
+    let formInfo = e.target
 
     let formData = {
         user_id: formInfo.id
@@ -111,4 +112,8 @@ function fetchNewFortune(e){
         body: JSON.stringify(formData)
     };
     return fetchFortune(configObj)
+}
+
+function displayFortune(json){
+    console.log(json)
 }
