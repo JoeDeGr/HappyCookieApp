@@ -4,6 +4,7 @@ const FORTUNE_URL = `${BASE_URL}/fortunes`
 let login = document.querySelector("body > div.login")
 let loginButton = document.querySelector("#login-form > input[type=button]")
 let body = document.querySelector('body');
+let background2 = 'fortune-cookie-with-paper.jpg'
 
 
 document.addEventListener('DOMContentLoaded', (e) =>{
@@ -21,4 +22,8 @@ function hide(obj){
     } else {
         obj.style.display = "none";
     }
+}
+
+function changeBackground(){
+    document.body.style.backgroundImage = `url(${background2})`;
 }

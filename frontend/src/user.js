@@ -59,4 +59,5 @@ function createUser(json){
     h2.innerHTML = greeting;
     div.appendChild(h2);
     body.appendChild(div);
+    changeBackground()
 }
