@@ -1,0 +1,8 @@
+body{
+    background-image: url("fortune-cookie.jpg");
+    background-position: center;
+    /* height: auto; */
+    /* background-size: cover;
+    background-repeat: none; */
+    background-color: #cccccc;
+}
