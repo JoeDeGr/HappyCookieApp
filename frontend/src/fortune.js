@@ -31,7 +31,7 @@ function loadFortuneField(){
     div.setAttribute('class', 'fortune-container')
     h3.setAttribute('class', 'fortune-heading')
     h3.innerHTML = "Travel through the deppest depths, the widest expanses of space and time to see what your future holds! "
-    button.addEventListener('click', (e) => console.log(e.target.id))
+    button.addEventListener('click', (e) => fetchNewFortune(e))
     button.setAttribute('class', 'fortune-button')
     button.innerHTML = "Push Me!"
     button.id = user.id
@@ -70,7 +70,7 @@ function loadFortuneField(){
 function appendFortunes(json){
     let ul = document.querySelector("body > div.fortunes-list > ul")
     let fortunes = json.fortunes
-    debugger
+    console.log(json)
     for (let fortune of fortunes) {
         fortune = new Fortune(fortune.id, fortune.name, fortune.posVibes, fortune.user_id);
         let li = document.createElement('li');
@@ -79,4 +79,25 @@ function appendFortunes(json){
         li.innerText = fortune.posVibes;
         ul.appendChild(li)
     }
+}
+
+function fetchNewFortune(e){
+    e.preventDefault();
+    let formInfo = e.target
+    console.log(formInfo)
+
+    let formData = {
+        user_id: e.target.id
+    }
+
+    let configObj = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify(formData)
+    };
+    console.log(configObj)
+    // return fetchFortune(configObj)
 }

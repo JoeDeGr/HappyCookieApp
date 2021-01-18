@@ -5,6 +5,8 @@ class FortunesController < ApplicationController
   end
 
   def create
+    user = User.find_by_id(id: params[:user_id])
+    binding.pry
     render "got the fetch"
   end
 
