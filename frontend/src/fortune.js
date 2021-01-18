@@ -8,8 +8,8 @@ class Fortune {
     }
 }
 
-function fetchFortune(){
-    return fetch(FORTUNE_URL)
+function fetchFortune(configObj){
+    return fetch(FORTUNE_URL, configObj)
         .then(resp => resp.json())
         .then(json => console.log(json))
         .catch(function(error){ 
@@ -55,8 +55,7 @@ function loadFortuneField(){
     body.appendChild(div2)
 
     function showOrHideFortunes(e){
-        console.log("I've been hit!");
-        console.log(e);
+        // console.log("I've been hit!");
         if(button2.innerHTML==="Show Previous Fortunes"){
             hide(ul);
             button2.innerHTML = "Hide Previous Fortunes"
@@ -70,6 +69,7 @@ function loadFortuneField(){
 function appendFortunes(json){
     let ul = document.querySelector("body > div.fortunes-list > ul")
     let fortunes = json.fortunes
+
     if (fortunes == ""){
         let li = document.createElement('li');
         li.setAttribute('class', 'fortunes');
@@ -77,9 +77,8 @@ function appendFortunes(json){
         li.innerText = fortuneDefaultMessage;
         ul.appendChild(li)
     }else{
-        debugger
+
         for (let fortune of fortunes) {
-            debugger
             thisFortune = new Fortune(fortune.id, fortune.name, fortune.posVibes, fortune.user_id);
             let li = document.createElement('li');
             let button = document.createElement('button')
@@ -92,12 +91,15 @@ function appendFortunes(json){
 }
 
 function fetchNewFortune(e){
+    console.log(e)
+    debugger
     e.preventDefault();
     let formInfo = e.target
+
     console.log(formInfo)
 
     let formData = {
-        user_id: e.target.id
+        user_id: formInfo.id
     }
 
     let configObj = {
@@ -108,6 +110,5 @@ function fetchNewFortune(e){
         },
         body: JSON.stringify(formData)
     };
-    // console.log(configObj)
     return fetchFortune(configObj)
 }
