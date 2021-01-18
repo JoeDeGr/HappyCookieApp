@@ -83,7 +83,7 @@ function appendFortunes(json){
 
     if (fortunes == ""){
         let li = document.createElement('li');
-        li.setAttribute('class', 'fortunes');
+        li.setAttribute('class', 'default-message');
         li.id = "0"
         li.innerText = fortuneDefaultMessage;
         ul.appendChild(li)
@@ -126,7 +126,10 @@ function displayFortune(json){
     console.log(json)
     let mainContainer = document.querySelector('body > div.fortune-container')
     let ul = document.querySelector("body > div.fortunes-list > ul")
-    debugger
+    let defaultMessage = document.querySelector(".default-message")
+    if (defaultMessage){
+        ul.removeChild(defaultMessage)
+    }
     thisFortune = new Fortune(json.id, json.name, json.posVibes, json.user_id);
     thisFortune.build(ul, 'fortunes', 'li')
     thisFortune.build(mainContainer, 'new-fortune', 'a')
