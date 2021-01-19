@@ -1,7 +1,7 @@
 class Fortune {
-    constructor(id, name, posVibes, user_id) {
+    constructor(id, resource_id, posVibes, user_id) {
         this.id = id;
-        this.name = name;
+        this.resource_id = resource_id;
         this.posVibes = posVibes;
         this.user_id = user_id;
     }
@@ -90,7 +90,7 @@ function appendFortunes(json){
     }else{
 
         for (let fortune of fortunes) {
-            thisFortune = new Fortune(fortune.id, fortune.name, fortune.posVibes, fortune.user_id);
+            thisFortune = new Fortune(fortune.id, fortune.resource_id, fortune.posVibes, fortune.user_id);
             thisFortune.build(ul, 'fortunes', 'li')
         }
     }
@@ -130,7 +130,7 @@ function displayFortune(json){
     if (defaultMessage){
         ul.removeChild(defaultMessage)
     }
-    thisFortune = new Fortune(json.id, json.name, json.posVibes, json.user_id);
+    thisFortune = new Fortune(json.id, json.resource_id, json.posVibes, json.user_id);
     thisFortune.build(ul, 'fortunes', 'li')
     thisFortune.build(mainContainer, 'new-fortune', 'a')
 }

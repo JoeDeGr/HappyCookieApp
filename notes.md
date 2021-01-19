@@ -6,3 +6,5 @@
 5)Javascript grabs the fortune and presents it to the user.
 6) user is prompted to save the fortune or destroy it
 7) Process starts over. 
+
+User 
