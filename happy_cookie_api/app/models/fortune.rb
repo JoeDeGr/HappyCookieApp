@@ -1,4 +1,4 @@
 class Fortune < ApplicationRecord
     belongs_to :user
-    has_many :resources
+    belongs_to :resources
 end

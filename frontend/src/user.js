@@ -38,6 +38,7 @@ function submitUserInfo(e){
 }
 
 function addUserToPage(json){
+    console.log(json)
     createUser(json);
     loadFortuneField();
     if(json.fortunes){

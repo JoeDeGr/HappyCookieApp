@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def create
     user = User.find_or_create_by(user_params)
     fortunes = Fortune.where(user_id: user.id)
-    render json: {user: user, fortunes: fortunes}
+    render json: {user: UserSerializer.new(user).to_serialized_json, fortunes: fortunes} 
   end
 
   def show
