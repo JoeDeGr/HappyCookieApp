@@ -102,7 +102,7 @@ function fetchNewFortune(e){
     let mainContainer = document.querySelector('body > div.fortune-container')
     
     let formInfo = e.target
-
+    debugger
     let formData = {
         user_id: formInfo.id
     }

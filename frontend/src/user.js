@@ -40,6 +40,7 @@ function submitUserInfo(e){
 function addUserToPage(json){
     console.log(json)
     createUser(json);
+    debugger
     loadFortuneField();
     if(json.fortunes){
         appendFortunes(json);
@@ -47,7 +48,8 @@ function addUserToPage(json){
 }
 
 function createUser(json){
-    user = new User(json.user.name, json.user.id);
+    userJSON = JSON.parse(json.user)
+    user = new User(userJSON.name, userJSON.id);
     hide(login);
     let greeting = `Welcome ${user.name}. We are glad you came here today.`;
     let div = document.createElement('div');
