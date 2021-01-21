@@ -32,7 +32,7 @@ Resource.new(fortune: "Look for a smile as brigt as your own, it will lead your 
 Resource.new(fortune: "You are on a long smooth journey! You should have great expectations.", type: "insprational")
 Resource.new(fortune: "Your soft voice can be awfully persuasive.", type: "compliment")
 Resource.new(fortune: "A truly rich life contains love and art in abundance. You have both." type: "compliment")
-Resource.new(fortune: "Accept something that you cannot change, and you will feel better.")
+Resource.new(fortune: "Accept something that you cannot change, and you will feel better.", type: "insprational")
 Resource.new(fortune: "Adventure can be real happiness.")
 # Resource.new(fortune: "Advice is like kissing. It costs nothing and is a pleasant thing to do.")     
 # Resource.new(fortune: "Advice, when most needed, is least heeded.")
