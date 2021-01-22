@@ -18,15 +18,14 @@ ActiveRecord::Schema.define(version: 2021_01_21_205549) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "resource_id"
-    t.string "type"
+    t.string "subType"
   end
 
   create_table "resources", force: :cascade do |t|
     t.string "fortune"
-    t.integer "fortune_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "type"
+    t.string "subType"
   end
 
   create_table "users", force: :cascade do |t|
