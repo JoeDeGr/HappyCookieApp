@@ -6,7 +6,7 @@ class ApplicationController < ActionController::API
     params.require(:user).permit(:name, :email, :password)
   end
   
-  def fortune_params(params)
-    params.require(:fortune).permit(:name)
-  end
+  # def fortune_params(params)
+  #   params.require(:fortune).permit(:name)
+  # end
 end

@@ -6,8 +6,9 @@ class FortunesController < ApplicationController
 
   def create
     user = User.find_by_id(params[:user_id])
-    newFortune = Resource.finds(xyz)
-    fortune = Fortune.new(id: 10, resource_id: "new fortune", posVibes: "feeling it!", user_id: user.id)
+    newFortune = Resource.first
+    binding.pry
+    fortune = Fortune.create(resource_id: newFortune.id, posVibes: newFortune.fortune, subType: newFortune.subType, user_id: user.id)
     render json: fortune
   end
 

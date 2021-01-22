@@ -40,7 +40,6 @@ function submitUserInfo(e){
 function addUserToPage(json){
     console.log(json)
     createUser(json);
-    debugger
     loadFortuneField();
     if(json.fortunes){
         appendFortunes(json);
