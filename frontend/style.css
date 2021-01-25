@@ -6,3 +6,106 @@ body{
     /* background-repeat: no-repeat; */
     background-color: #cccccc;
 }
+
+header{
+    margin: auto;
+    width: 90%;
+    border: 3px solid #cccccc;
+    padding: 10px;
+    text-align: center;
+}
+h2{
+    margin: auto;
+    width: 90%;
+    border: 3px solid #cccccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.login{
+    margin: auto;
+    width: 90%;
+    border: 3px solid #cccccc;
+    padding: 10px;
+    text-align: center;
+}
+ul{
+    margin: auto;
+    width: 90%;
+    border: 3px solid #cccccc;
+    padding: 10px;
+    text-align: center;
+}
+
+lh{
+    font-size: large;
+    font-weight: bold
+}
+a{
+    margin: auto;
+    width: 90%;
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+    font-style: italic;
+    font-weight: bolder;
+    background: #ffffff;
+    
+}
+.fortunes{
+    margin: auto;
+    width: 90%;
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+    font-style: italic;
+    background: #ffffff
+}
+
+.fortune-container{
+        margin: auto;
+        width: 90%;
+        border: 3px solid #cccccc;
+        padding: 10px;
+        text-align: center;
+        font-style: italic;
+        font-weight: bolder;
+}
+div.fortunes-list{
+    margin: auto;
+    width: 100%;
+    /* border: 3px solid #cccccc; */
+    padding: 10px;
+    text-align: center;
+    display: block;
+    justify-content: center;
+    align-items: center;
+  }
+  .hide-previous-fortunes-button{
+    border-radius: 50%;
+    border: none;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    /* margin: auto;  */
+    margin: 4px 4px;
+    cursor: pointer;
+    font-weight: bold;
+
+  }
+  .fortune-button{
+    border-radius: 12px;
+    border: none;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: auto; 
+    /* margin: 4px 2px; */
+    cursor: pointer;
+    font-weight:bold
+
+  }
