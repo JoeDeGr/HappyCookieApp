@@ -1,8 +1,8 @@
 class FortunesController < ApplicationController
-  def index
-    fortune = Fortune.all
-    render json: fortune
-  end
+  # def index
+  #   fortune = Fortune.all
+  #   render json: fortune
+  # end
 
   def create
     user = User.find_by_id(params[:user_id])
