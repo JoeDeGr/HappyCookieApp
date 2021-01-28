@@ -6,7 +6,6 @@ class Fortune {
         this.user_id = user_id;
     }
     build (location, atr, type){
-        console.log(this)
         let li = document.createElement(type);
         let button = document.createElement('button')
         li.setAttribute('class', atr);

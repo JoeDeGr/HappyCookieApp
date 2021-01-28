@@ -20,9 +20,12 @@ function submitUserInfo(e){
     let formInfo = document.querySelector('#login-form');
 
     let formData = {
-        name: formInfo[0].value,
-        email: formInfo[1].value,
-        password: formInfo[2].value
+        user:{
+            name: formInfo[0].value,
+            email: formInfo[1].value,
+            password: formInfo[2].value,
+            // password_confirmation: formInfo[2].value
+        }
     }
 
     let configObj = {

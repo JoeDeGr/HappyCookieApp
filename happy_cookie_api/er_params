@@ -1,0 +1,13 @@
+
+[1mFrom:[0m /mnt/c/Users/jdegr/dev/flatiron/labs/HappyCookieApp/happy_cookie_api/app/controllers/users_controller.rb:7 UsersController#create:
+
+     [1;34m5[0m: [32mdef[0m [1;34mcreate[0m
+     [1;34m6[0m:   user = [1;34;4mUser[0m.find_or_create_by(user_params)
+ =>  [1;34m7[0m:   binding.pry
+     [1;34m8[0m:   [32mreturn[0m head([33m:forbidden[0m) [32munless[0m user.authenticate(params[[33m:password[0m])
+     [1;34m9[0m:   fortunes = [1;34;4mFortune[0m.where([35muser_id[0m: user.id)
+    [1;34m10[0m:   session[[33m:user_id[0m] = user.id
+    [1;34m11[0m:   binding.pry
+    [1;34m12[0m:   render [35mjson[0m: {[35muser[0m: [1;34;4mUserSerializer[0m.new(user).to_serialized_json, [35mfortunes[0m: fortunes} 
+    [1;34m13[0m: [32mend[0m
+

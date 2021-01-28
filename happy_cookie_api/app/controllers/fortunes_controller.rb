@@ -5,6 +5,7 @@ class FortunesController < ApplicationController
   # end
 
   def create
+
     user = User.find_by_id(params[:user_id])
     ids = user.resource_ids
     fortunes = Resource.all

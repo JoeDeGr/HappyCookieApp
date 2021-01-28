@@ -1,14 +1,16 @@
 class ApplicationController < ActionController::API
-  before_action :require_login
-  before_action :current_user
+  # before_action :require_login
+  # before_action :current_user
 
     private
 
-  def user_params
-    params.require(:user).permit(:name, :email, :password)
-  end
+  # def user_params
+  #   binding.pry
+  #   params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  # end
 
   def require_login
+    binding.pry
       return head(:forbidden) unless session.include? :user_id
   end
 
