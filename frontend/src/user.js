@@ -10,10 +10,11 @@ function fetchUser(configObj){
         .then(resp => resp.json())
         .then(json => addUserToPage(json))
         .catch(function(error){
-            alert("Yaargh! I'm Not Working!");
+            alert(`Yaargh! I'm Not Working!`);
             console.log(error.message);
         })
 }
+// , json.errors[0], json.errors[1]
 
 function submitUserInfo(e){
     e.preventDefault();

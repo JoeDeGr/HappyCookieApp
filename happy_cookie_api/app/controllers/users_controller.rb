@@ -4,20 +4,16 @@ class UsersController < ApplicationController
 
   def create
     user = User.find_by(user_params) || User.create(user_password)
-  
     if user.valid? && user.authenticate(params[:user][:password])
       fortunes = Fortune.where(user_id: user.id)
-      # session[:user_id] = user.id 
       render json: {user: UserSerializer.new(user).to_serialized_json, fortunes: fortunes} 
     else
-      binding.pry
-      render json: {errors: "Login Failed"}
+      render json: {errors: "Login Failed"}.to_json
     end
   end
 
   def destroy
   end
-
 end
 
 private
