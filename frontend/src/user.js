@@ -66,10 +66,3 @@ function createUser(json){
     changeBackground()
 }
 
-function deleteLis(){
-    let lis = document.getElementsByClassName("fortunes")
-
-    lis.forEach(li =>
-        li.remove()
-    )
-}

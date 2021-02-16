@@ -149,3 +149,15 @@ function deleteLis(){
         li.remove()
     )
 }
+
+function deleteLis(){
+    let lis = document.getElementsByClassName("fortunes")
+    for (let i = 0; i< lis.length; i++){
+        lis[i].parentNode.removeChild(lis[i])
+    }
+}
+
+function sortFortunes(){
+    return Fortune.allInstances.sort((a,b) => a.posVibes.localeCompare(b.posVibes))
+}
+
