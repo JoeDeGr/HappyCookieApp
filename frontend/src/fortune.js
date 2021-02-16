@@ -146,14 +146,16 @@ function deleteLis(){
     let lis = document.getElementsByClassName("fortunes")
 
     lis.forEach(li =>
-        li.remove()
+        console.log(li)
+        //li.remove()
     )
 }
 
 function deleteLis(){
     let lis = document.getElementsByClassName("fortunes")
-    for (let i = 0; i< lis.length; i++){
-        lis[i].parentNode.removeChild(lis[i])
+    const len = lis.length
+    for (let i = 0; i < len; i++){
+        lis[i].remove()
     }
 }
 
