@@ -30,6 +30,8 @@ function fetchFortune(configObj){
 
 function loadFortuneField(){
     //create my items
+    const main = document.querySelector('main')
+
     let div = document.createElement('div')
     let h3 = document.createElement('h3')
     let button = document.createElement('button')
@@ -60,13 +62,14 @@ function loadFortuneField(){
     hide(ul) //hide the list until its called
     //add my previous fortunes
     ul.appendChild(subH)
+    ul.appendChild(button3)
     div2.appendChild(button2)
     div2.appendChild(ul)
     //add it all to the body
     div.appendChild(h3)
     div.appendChild(button)
-    body.appendChild(div)
-    body.appendChild(div2)
+    main.appendChild(div)
+    main.appendChild(div2)
 
     function showOrHideFortunes(e){
         // console.log("I've been hit!");
@@ -81,7 +84,7 @@ function loadFortuneField(){
 }
 
 function appendFortunes(json){
-    let ul = document.querySelector("body > div.fortunes-list > ul")
+    let ul = document.querySelector('ul')
     let fortunes = json.fortunes
 
     if (fortunes == ""){
@@ -102,7 +105,7 @@ function appendFortunes(json){
 function fetchNewFortune(e){
     e.preventDefault();
     let a = document.querySelector(".new-fortune")
-    let mainContainer = document.querySelector('body > div.fortune-container')
+    let mainContainer = document.querySelector('div.fortune-container')
     
     let formInfo = e.target
 
@@ -127,8 +130,8 @@ function fetchNewFortune(e){
 
 function displayFortune(json){
     console.log(json)
-    let mainContainer = document.querySelector('body > div.fortune-container')
-    let ul = document.querySelector("body > div.fortunes-list > ul")
+    let mainContainer = document.querySelector('div.fortune-container')
+    let ul = document.querySelector("ul")
     let defaultMessage = document.querySelector(".default-message")
     if (defaultMessage){
         ul.removeChild(defaultMessage)

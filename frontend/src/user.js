@@ -56,12 +56,20 @@ function createUser(json){
     hide(login);
     let greeting = `Welcome ${user.name}. We are glad you came here today.`;
     let div = document.createElement('div');
-    let h2 = document.createElement('h2');
+    let h2 = document.querySelector('h2');
     div.setAttribute('class', "info");
     div.id = user.id;
     h2.setAttribute('class', 'greeting');
     h2.innerHTML = greeting;
-    div.appendChild(h2);
-    body.appendChild(div);
+    // div.appendChild(h2);
+    // body.appendChild(div);
     changeBackground()
+}
+
+function deleteLis(){
+    let lis = document.getElementsByClassName("fortunes")
+
+    lis.forEach(li =>
+        li.remove()
+    )
 }
