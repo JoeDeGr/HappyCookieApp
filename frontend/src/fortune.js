@@ -155,7 +155,7 @@ function deleteLis(){
     let lis = document.getElementsByClassName("fortunes")
     const len = lis.length
     for (let i = 0; i < len; i++){
-        lis[i].remove()
+        lis[0].remove()
     }
 }
 
