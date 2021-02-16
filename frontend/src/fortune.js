@@ -4,19 +4,19 @@ class Fortune {
         this.resource_id = resource_id;
         this.posVibes = posVibes;
         this.user_id = user_id;
+        Fortune.allInstances.push(this)
     }
     build (location, atr, type){
         let li = document.createElement(type);
         let button = document.createElement('button')
         li.setAttribute('class', atr);
-        li.id = thisFortune.id;
-        li.innerText = thisFortune.posVibes;
+        li.id = this.id;
+        li.innerText = this.posVibes;
         location.appendChild(li)
     }
 }
 
-
-
+Fortune.allInstances = []
 
 function fetchFortune(configObj){
     return fetch(FORTUNE_URL, configObj)
@@ -37,6 +37,7 @@ function loadFortuneField(){
     let ul = document.createElement('ul')
     let button2 = document.createElement('button')
     let subH = document.createElement('lh')
+    let button3 = document.createElement('button')
     //create the main fortune 
     div.setAttribute('class', 'fortune-container')
     h3.setAttribute('class', 'fortune-heading')
@@ -53,6 +54,9 @@ function loadFortuneField(){
     button2.innerHTML = "Show Previous Fortunes"
     button2.addEventListener('click', (e) => showOrHideFortunes(e));
     ul.setAttribute('class', 'fortune-list')
+    button3.setAttribute('class', 'alphabatize');
+    button3.innerHTML = "Alphabatize?"
+    button3.addEventListener('click', (e) => console.log('HIT!'));
     hide(ul) //hide the list until its called
     //add my previous fortunes
     ul.appendChild(subH)
@@ -89,7 +93,7 @@ function appendFortunes(json){
     }else{
 
         for (let fortune of fortunes) {
-            thisFortune = new Fortune(fortune.id, fortune.resource_id, fortune.posVibes, fortune.user_id);
+            let thisFortune = new Fortune(fortune.id, fortune.resource_id, fortune.posVibes, fortune.user_id);
             thisFortune.build(ul, 'fortunes', 'li')
         }
     }
@@ -129,7 +133,16 @@ function displayFortune(json){
     if (defaultMessage){
         ul.removeChild(defaultMessage)
     }
-    thisFortune = new Fortune(json.id, json.resource_id, json.posVibes, json.user_id);
+    let thisFortune = new Fortune(json.id, json.resource_id, json.posVibes, json.user_id);
     thisFortune.build(ul, 'fortunes', 'li')
     thisFortune.build(mainContainer, 'new-fortune', 'a')
+    
+}
+
+function deleteLis(){
+    let lis = document.getElementsByClassName("fortunes")
+
+    lis.forEach(li =>
+        li.remove()
+    )
 }
