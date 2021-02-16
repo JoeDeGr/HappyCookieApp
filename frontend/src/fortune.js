@@ -58,12 +58,14 @@ function loadFortuneField(){
     ul.setAttribute('class', 'fortune-list')
     button3.setAttribute('class', 'alphabatize');
     button3.innerHTML = "Alphabatize?"
-    button3.addEventListener('click', (e) => console.log('HIT!'));
+    button3.id = 1
+    button3.addEventListener('click', (e) => alphabatize());
     hide(ul) //hide the list until its called
+    hide(button3)
     //add my previous fortunes
     ul.appendChild(subH)
-    ul.appendChild(button3)
     div2.appendChild(button2)
+    div2.appendChild(button3)
     div2.appendChild(ul)
     //add it all to the body
     div.appendChild(h3)
@@ -75,9 +77,11 @@ function loadFortuneField(){
         // console.log("I've been hit!");
         if(button2.innerHTML==="Show Previous Fortunes"){
             hide(ul);
+            hide(button3)
             button2.innerHTML = "Hide Previous Fortunes"
         }else{
             hide(ul);
+            hide(button3)
             button2.innerHTML = "Show Previous Fortunes"
         }
     }
@@ -159,7 +163,29 @@ function deleteLis(){
     }
 }
 
-function sortFortunes(){
+function alphabatizeFortunes(){
     return Fortune.allInstances.sort((a,b) => a.posVibes.localeCompare(b.posVibes))
 }
 
+function sortFortunes(){
+    return Fortune.allInstances.sort((a,b) => a.id - b.id)
+}
+
+function alphabatize(){
+    let ul = document.querySelector('ul')
+    let button = document.querySelector('button.alphabatize')
+    let sorted = []
+    console.log(button.id)
+    if (button.id === "1" ){
+        button.id = 2
+        deleteLis()
+        sorted = alphabatizeFortunes()
+    } else {
+        button.id = 1
+        deleteLis()
+        sorted = sortFortunes()
+    }    
+    sorted.forEach(fortune => {
+        fortune.build(ul, 'fortunes', 'li')
+    })
+}
