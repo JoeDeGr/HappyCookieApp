@@ -18,8 +18,6 @@ class Fortune {
         // li.appendChild(button)
         location.appendChild(li)
     }
-
-
 }
 
 Fortune.allInstances = []
@@ -34,10 +32,9 @@ function fetchFortune(configObj){
         })
 }
 
-function loadFortuneField(){
+function loadFortuneField(user){
     //create my items
     const main = document.querySelector('main')
-
     let div = document.createElement('div')
     let h3 = document.createElement('h3')
     let button = document.createElement('button')

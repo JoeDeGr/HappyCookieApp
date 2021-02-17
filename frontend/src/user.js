@@ -2,19 +2,33 @@ class User{
     constructor(name, id){
         this.name = name
         this.id = id
+        this.fortunes = Fortune.allInstances
+        User.currentUser = this
+    }
+    addToPage(){
+        hide(login);
+        let greeting = `Welcome ${this.name}. We are glad you came here today.`;
+        let div = document.createElement('div');
+        let h2 = document.querySelector('h2');
+        div.setAttribute('class', "info");
+        div.id = this.id;
+        h2.setAttribute('class', 'greeting');
+        h2.innerHTML = greeting;
+        changeBackground()    
     }
 }
+
+User.currentUser = []
 
 function fetchUser(configObj){
     return fetch(USER_URL, configObj)
         .then(resp => resp.json())
-        .then(json => addUserToPage(json))
+        .then(json => createUser(json))
         .catch(function(error){
             alert(`Yaargh! I'm Not Working!`);
             console.log(error.message);
         })
 }
-// , json.errors[0], json.errors[1]
 
 function submitUserInfo(e){
     e.preventDefault();
@@ -37,32 +51,16 @@ function submitUserInfo(e){
         },
         body: JSON.stringify(formData)
     };
-
     return fetchUser(configObj)
 }
 
-function addUserToPage(json){
-    console.log(json)
-    createUser(json);
-    loadFortuneField();
-    if(json.fortunes){
+function createUser(json){
+    let userJSON = JSON.parse(json.user)
+    let user = new User(userJSON.name, userJSON.id);
+    user.addToPage()
+    loadFortuneField(user);
+    if (json.fortunes) {
         appendFortunes(json);
     }
-}
-
-function createUser(json){
-    userJSON = JSON.parse(json.user)
-    user = new User(userJSON.name, userJSON.id);
-    hide(login);
-    let greeting = `Welcome ${user.name}. We are glad you came here today.`;
-    let div = document.createElement('div');
-    let h2 = document.querySelector('h2');
-    div.setAttribute('class', "info");
-    div.id = user.id;
-    h2.setAttribute('class', 'greeting');
-    h2.innerHTML = greeting;
-    // div.appendChild(h2);
-    // body.appendChild(div);
-    changeBackground()
 }
 
