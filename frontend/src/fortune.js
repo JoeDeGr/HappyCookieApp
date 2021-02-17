@@ -8,12 +8,18 @@ class Fortune {
     }
     build (location, atr, type){
         let li = document.createElement(type);
-        let button = document.createElement('button')
+        // let button = document.createElement('button')
+        // button.setAttribute('class', 'yodafi')
+        // button.innerHTML = "Press Me!"
+        // button.addEventListener( 'click', (e) => fetchNewYodish(e))
         li.setAttribute('class', atr);
         li.id = this.id;
         li.innerText = this.posVibes;
+        // li.appendChild(button)
         location.appendChild(li)
     }
+
+
 }
 
 Fortune.allInstances = []
@@ -148,15 +154,6 @@ function displayFortune(json){
 
 function deleteLis(){
     let lis = document.getElementsByClassName("fortunes")
-
-    lis.forEach(li =>
-        console.log(li)
-        //li.remove()
-    )
-}
-
-function deleteLis(){
-    let lis = document.getElementsByClassName("fortunes")
     const len = lis.length
     for (let i = 0; i < len; i++){
         lis[0].remove()
@@ -175,7 +172,7 @@ function alphabatize(){
     let ul = document.querySelector('ul')
     let button = document.querySelector('button.alphabatize')
     let sorted = []
-    console.log(button.id)
+
     if (button.id === "1" ){
         button.id = 2
         deleteLis()
