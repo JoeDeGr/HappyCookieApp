@@ -23,7 +23,7 @@ User.currentUser = []
 function fetchUser(configObj){
     return fetch(USER_URL, configObj)
         .then(resp => resp.json())
-        .then(json => createUser(json))
+        .then(json => loadUserPageInfo(json))
         .catch(function(error){
             alert(`Yaargh! I'm Not Working!`);
             console.log(error.message);
@@ -54,11 +54,11 @@ function submitUserInfo(e){
     return fetchUser(configObj)
 }
 
-function createUser(json){
+function loadUserPageInfo(json){
     let userJSON = JSON.parse(json.user)
     let user = new User(userJSON.name, userJSON.id);
     user.addToPage()
-    loadFortuneField(user);
+    loadFortuneField();
     if (json.fortunes) {
         appendFortunes(json);
     }

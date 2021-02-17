@@ -32,7 +32,7 @@ function fetchFortune(configObj){
         })
 }
 
-function loadFortuneField(user){
+function loadFortuneField(){
     //create my items
     const main = document.querySelector('main')
     let div = document.createElement('div')
@@ -50,7 +50,7 @@ function loadFortuneField(user){
     button.addEventListener('click', (e) => fetchNewFortune(e))
     button.setAttribute('class', 'fortune-button')
     button.innerHTML = "Push Me!"
-    button.id = user.id
+    button.id = User.currentUser.id
     // create a place for old fortunes
     div2.setAttribute('class', 'fortunes-list')
     subH.setAttribute('class', 'fortune-sub-heading')
