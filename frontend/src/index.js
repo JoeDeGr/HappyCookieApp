@@ -8,11 +8,9 @@ let body = document.querySelector('body');
 let background2 = 'fortune-cookie-with-paper.jpg'
 let fortuneDefaultMessage = "You don't have any fortunes yet!"
 
-
 document.addEventListener('DOMContentLoaded', (e) =>{
     buildPage()
 });
-
 
 function buildPage(){
     loginButton.addEventListener('click', (e) => submitUserInfo(e))

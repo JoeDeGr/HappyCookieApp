@@ -113,7 +113,6 @@ function fetchNewFortune(e){
     e.preventDefault();
     let a = document.querySelector(".new-fortune")
     let mainContainer = document.querySelector('div.fortune-container')
-    
     let formInfo = e.target
 
     let formData = {
@@ -136,7 +135,6 @@ function fetchNewFortune(e){
 }
 
 function displayFortune(json){
-    console.log(json)
     let mainContainer = document.querySelector('div.fortune-container')
     let ul = document.querySelector("ul")
     let defaultMessage = document.querySelector(".default-message")

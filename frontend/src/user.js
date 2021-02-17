@@ -63,4 +63,3 @@ function createUser(json){
         appendFortunes(json);
     }
 }
-
